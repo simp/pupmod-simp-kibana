@@ -1,0 +1,16 @@
+/*
+ * This file managed by Puppet
+ * Any modifications will be removed at the next Puppet run.
+ */
+
+define(['settings'],
+function (Settings) {
+  "use strict";
+
+  return new Settings({
+    elasticsearch:    "<%= @es_uri %>",
+    default_route:    "<%= @default_route %>",
+    kibana_index:     "kibana-int",
+    panel_names:      ['<%= @kibana_modules.sort.join("','") %>'],
+  });
+});

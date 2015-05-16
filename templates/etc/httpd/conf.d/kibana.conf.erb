@@ -1,0 +1,62 @@
+RewriteEngine On
+<% if "#{redirect_web_root}" == 'true' then -%>
+RewriteRule ^/?$ /kibana [R]
+<% end -%>
+RewriteCond %{HTTPS} off
+RewriteRule ^/kibana https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+# Set global proxy timeouts
+<Proxy <%= es_proxy %>>
+  ProxySet connectiontimeout=5 timeout=90
+</Proxy>
+
+<Location /kibana>
+  SSLRequireSSL
+  SSLVerifyClient <%= ssl_verify_client %>
+
+  include '<%= httpd_includes %>/auth/*.conf'
+  include '<%= httpd_includes %>/limit/*.conf'
+</Location>
+
+# Proxy for _aliases and .*/_search
+<LocationMatch "^/kibana/<%= es_uri %>/(_nodes|_aliases|.*/_aliases|_search|.*/_search|_mapping|.*/_mapping)$">
+  SSLRequireSSL
+  SSLVerifyClient <%= ssl_verify_client %>
+
+  ProxyPassMatch <%= es_proxy %>/$1
+  ProxyPassReverse <%= es_proxy %>/$1
+
+  include '<%= httpd_includes %>/limit/*.conf'
+</LocationMatch>
+
+<LocationMatch "^/kibana/<%= es_uri %>/(kibana-int/dashboard/|kibana-int/temp)(.*)$">
+  SSLRequireSSL
+  SSLVerifyClient <%= ssl_verify_client %>
+
+  ProxyPassMatch <%= es_proxy %>/$1$2
+  ProxyPassReverse <%= es_proxy %>/$1$2
+
+  include '<%= httpd_includes %>/limit_int/*.conf'
+</LocationMatch>
+
+<Location /kibana/<%= es_uri %>>
+  SSLRequireSSL
+  SSLVerifyClient <%= ssl_verify_client %>
+
+  include '<%= httpd_includes %>/limit/*.conf'
+
+  <LimitExcept GET POST PUT >
+    Order allow,deny
+  </LimitExcept>
+</Location>
+
+<Location /kibana/<%= es_uri %>/kibana-int>
+  SSLRequireSSL
+  SSLVerifyClient <%= ssl_verify_client %>
+
+  include '<%= httpd_includes %>/limit_int/*.conf'
+
+  <LimitExcept GET POST PUT DELETE>
+    Order allow,deny
+  </LimitExcept>
+</Location>
