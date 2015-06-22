@@ -1,0 +1,7 @@
+---
+rsync::server : '192.168.122.100'
+client_nets : '192.168.122.0/24'
+ldap::base_dn: 'cn=hostAuth,ou=Hosts,dc=example,dc=domain'
+ldap::uri: 'ldap://test.foo.domain'
+ldap::bind_dn: 'cn=hostAuth,ou=Hosts,dc=example,dc=domain'
+ldap::bind_pw: 'FakeCrazyAwesomePasswordStuffPlaceBacon'

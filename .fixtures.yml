@@ -1,0 +1,17 @@
+---
+fixtures:
+  repositories:
+    apache: "git://github.com/simp/pupmod-simp-apache"
+    common: "git://github.com/simp/pupmod-simp-common"
+    iptables: "git://github.com/simp/pupmod-simp-iptables"
+    stdlib: "git://github.com/simp/puppetlabs-stdlib"
+    pki: "git://github.com/simp/pupmod-simp-pki"
+    auditd: "git://github.com/simp/pupmod-simp-auditd"
+    augeasproviders_grub: "git://github.com/simp/augeasproviders_grub"
+    augeasproviders_core: "git://github.com/simp/augeasproviders_core"
+    rsync: "git://github.com/simp/pupmod-simp-rsync"
+    rsyslog: "git://github.com/simp/pupmod-simp-rsyslog"
+    logrotate: "git://github.com/simp/pupmod-simp-logrotate"
+    concat: "git://github.com/simp/pupmod-simp-concat"
+  symlinks:
+    kibana: "#{source_dir}"
