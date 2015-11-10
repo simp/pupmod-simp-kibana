@@ -1,13 +1,14 @@
 Summary: Kibana SIMP Puppet Module
 Name: pupmod-simp-kibana
 Version: 3.0.1
-Release: 3
+Release: 4
 License: Apache License, Version 2.0
 Group: Applications/System
 Source: %{name}-%{version}-%{release}.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires: pupmod-apache >= 4.0-13
 Requires: pupmod-common >= 4.0.0-1
+Requires: pupmod-simplib >= 1.0.0-0
 Requires: pupmod-iptables >= 4.0.0-0
 Requires: puppet >= 3.3.0
 Buildarch: noarch
@@ -53,6 +54,9 @@ fi
 # Post uninstall stuff
 
 %changelog
+* Mon Nov 09 2015 Chris Tessmer <chris.tessmer@onypoint.com> - 3.0.1-4
+- migration to simplib and simpcat (lib/ only)
+
 * Mon Mar 2 2015 Ralph Wright <rwright@onyxpoint.com> - 3.0.1-3
 - Added Kibana dashboards to go along with the SIMP logstash filters
 

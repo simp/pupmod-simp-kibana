@@ -3,6 +3,7 @@ fixtures:
   repositories:
     apache: "git://github.com/simp/pupmod-simp-apache"
     common: "git://github.com/simp/pupmod-simp-common"
+    simplib: "git://github.com/simp/pupmod-simp-simplib"
     iptables: "git://github.com/simp/pupmod-simp-iptables"
     stdlib: "git://github.com/simp/puppetlabs-stdlib"
     pki: "git://github.com/simp/pupmod-simp-pki"
@@ -12,6 +13,6 @@ fixtures:
     rsync: "git://github.com/simp/pupmod-simp-rsync"
     rsyslog: "git://github.com/simp/pupmod-simp-rsyslog"
     logrotate: "git://github.com/simp/pupmod-simp-logrotate"
-    concat: "git://github.com/simp/pupmod-simp-concat"
+    simpcat: "git://github.com/simp/pupmod-simp-concat"
   symlinks:
     kibana: "#{source_dir}"
