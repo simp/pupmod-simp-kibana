@@ -278,21 +278,23 @@ class kibana (
     # This is for the main limits (not the kibana-int space)
     $l_apache_limits = apache_limits($l_method_acl['limits'])
 
+    $_limits_content = $l_apache_limits ? {
+      # Set some sane defaults.
+      ''      => "<Limit GET POST PUT>
+          Order deny,allow
+          Deny from all
+          Allow from 127.0.0.1
+          Allow from ${::fqdn}
+        </Limit>",
+      default => "${l_apache_limits}\n"
+      }
+
     file { "${httpd_includes}/limit/limits.conf":
       ensure  => 'file',
       owner   => 'root',
       group   => 'apache',
       mode    => '0640',
-      content => $l_apache_limits ? {
-        # Set some sane defaults.
-        ''      => "<Limit GET POST PUT>
-            Order deny,allow
-            Deny from all
-            Allow from 127.0.0.1
-            Allow from ${::fqdn}
-          </Limit>",
-        default => "${l_apache_limits}\n"
-      },
+      content => $_limits_content,
       notify  => Service['httpd']
     }
 
@@ -303,21 +305,23 @@ class kibana (
         'defaults' => array_union($l_method_acl['limits']['defaults'],['DELETE'])
       }))
 
+    $_limits_int_content = $l_apache_limits_int ? {
+      # Set some sane defaults.
+      ''      => "<Limit GET POST PUT DELETE>
+          Order deny,allow
+          Deny from all
+          Allow from 127.0.0.1
+          Allow from ${::fqdn}
+        </Limit>",
+      default => "${l_apache_limits_int}\n"
+    }
+
     file { "${httpd_includes}/limit_int/limits.conf":
       ensure  => 'file',
       owner   => 'root',
       group   => 'apache',
       mode    => '0640',
-      content => $l_apache_limits ? {
-        # Set some sane defaults.
-        ''      => "<Limit GET POST PUT DELETE>
-            Order deny,allow
-            Deny from all
-            Allow from 127.0.0.1
-            Allow from ${::fqdn}
-          </Limit>",
-        default => "${l_apache_limits}\n"
-      },
+      content => $_limits_int_content,
       notify  => Service['httpd']
     }
   }
