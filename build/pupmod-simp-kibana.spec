@@ -7,7 +7,6 @@ Group: Applications/System
 Source: %{name}-%{version}-%{release}.tar.gz
 Buildroot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires: pupmod-apache >= 4.0-13
-Requires: pupmod-common >= 4.0.0-1
 Requires: pupmod-simplib >= 1.0.0-0
 Requires: pupmod-iptables >= 4.0.0-0
 Requires: puppet >= 3.3.0
