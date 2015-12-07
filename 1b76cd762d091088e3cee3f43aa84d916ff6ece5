@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac4a560_2c4c4370",
+        "filename": ".puppet-lint.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1005194
+      },
+      "writtenOn": "2015-12-07T20:21:24Z",
+      "side": 1,
+      "message": "--disable_selector_inside_resource\u0027 (see init.pp:311)",
+      "revId": "1b76cd762d091088e3cee3f43aa84d916ff6ece5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
