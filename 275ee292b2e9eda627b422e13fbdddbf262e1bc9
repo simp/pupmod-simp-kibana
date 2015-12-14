@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac4a560_7e108a01",
+        "filename": "metadata.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1004834
+      },
+      "writtenOn": "2015-12-14T13:49:15Z",
+      "side": 1,
+      "message": "We need to standardize this.",
+      "revId": "275ee292b2e9eda627b422e13fbdddbf262e1bc9",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
