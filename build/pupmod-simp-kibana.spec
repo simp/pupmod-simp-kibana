@@ -1,7 +1,7 @@
 Summary: Kibana SIMP Puppet Module
 Name: pupmod-simp-kibana
-Version: 3.0.1
-Release: 5
+Version: 3.0.2
+Release: 0
 License: Apache License, Version 2.0
 Group: Applications/System
 Source: %{name}-%{version}-%{release}.tar.gz
@@ -53,6 +53,9 @@ fi
 # Post uninstall stuff
 
 %changelog
+* Tue May 17 2016 Chris Tessmer <chris.tessmer@onypoint.com> - 3.0.2-0
+- Sanitize code for `STRICT_VARIABLES=yes`
+
 * Tue Dec 08 2015 Nick Markowski <nmarkowski@keywcorp.com> - 3.0.1-5
 - Minor bug fix for apache limits conf.
 

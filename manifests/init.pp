@@ -210,6 +210,12 @@ class kibana (
   ],
   $method_acl = {}
 ) {
+  validate_array_member($manage_httpd,[true,false,'conf'])
+  validate_bool($redirect_web_root)
+  validate_net_list($allowroot,'^(any|ALL)$')
+  validate_net_list($ssl_allowroot,'^(any|ALL)$')
+  validate_array($kibana_modules)
+  validate_hash($method_acl)
 
   package { 'kibana': ensure => 'latest' }
 
@@ -325,11 +331,4 @@ class kibana (
       notify  => Service['httpd']
     }
   }
-
-  validate_array_member($manage_httpd,[true,false,'conf'])
-  validate_bool($redirect_web_root)
-  validate_net_list($allowroot,'^(any|ALL)$')
-  validate_net_list($ssl_allowroot,'^(any|ALL)$')
-  validate_array($kibana_modules)
-  validate_hash($method_acl)
 }

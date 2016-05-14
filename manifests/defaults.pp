@@ -8,6 +8,8 @@
 # * Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class kibana::defaults {
+  $_ldap_base_dn = hiera('ldap::base_dn')
+
   $method_acl = {
     'method' => {
       'file' => {
@@ -20,7 +22,7 @@ class kibana::defaults {
         'security'    => 'STARTTLS',
         'binddn'      => hiera('ldap::bind_dn'),
         'bindpw'      => hiera('ldap::bind_pw'),
-        'search'      => inline_template('ou=People,<%= scope.function_hiera(["ldap::base_dn"]) %>'),
+        'search'      => "ou=People,${_ldap_base_dn}",
         'posix_group' => true
       }
     },

@@ -1,13 +1,17 @@
 {
-  "name":    "simp-kibana",
-  "version": "3.0.1",
-  "author":  "simp",
+  "name": "simp-kibana",
+  "version": "3.0.2",
+  "author": "simp",
   "summary": "manages Kibana 3 in a SIMP-compatible environment",
   "license": "Apache-2.0",
-  "source":  "https://github.com/simp/pupmod-simp-kibana",
+  "source": "https://github.com/simp/pupmod-simp-kibana",
   "project_page": "https://github.com/simp/pupmod-simp-kibana",
-  "issues_url":   "https://simp-project.atlassian.net",
-  "tags": [ "simp", "kibana", "elk" ],
+  "issues_url": "https://simp-project.atlassian.net",
+  "tags": [
+    "simp",
+    "kibana",
+    "elk"
+  ],
   "dependencies": [
     {
       "name": "simp-apache",

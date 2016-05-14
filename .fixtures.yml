@@ -14,5 +14,6 @@ fixtures:
     rsyslog: "git://github.com/simp/pupmod-simp-rsyslog"
     logrotate: "git://github.com/simp/pupmod-simp-logrotate"
     simpcat: "git://github.com/simp/pupmod-simp-concat"
+    compliance: "https://github.com/trevor-vaughan/pupmod-compliance"
   symlinks:
     kibana: "#{source_dir}"
