@@ -1,13 +1,7 @@
-# == Class: kibana::simp
-#
 # This class adds SIMP dashboards to the Kibana web directory
 #
-# == Parameters
-#
-# == Authors
-#
-# * Ralph Wright <rwright@onyxpoint.com>
-# * Trevor Vaughan <tvaughan@onyxpoint.com>
+# @author Ralph Wright <rwright@onyxpoint.com>
+# @author Trevor Vaughan <tvaughan@onyxpoint.com>
 #
 class kibana::dashboards {
   file {'/var/www/html/kibana/app/dashboards':
