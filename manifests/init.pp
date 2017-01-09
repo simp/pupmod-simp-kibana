@@ -151,7 +151,7 @@ class kibana (
   Variant[Boolean,Enum['conf']]     $manage_httpd      = true,
   Boolean                           $redirect_web_root = false,
   Simplib::Netlist                  $allowroot         = ['127.0.0.1'],
-  Simplib::Netlist                  $ssl_allowroot     = simplib::lookup('simp_options::trusted_nets', {'default_value' => ['127.0.0.1/32'] }),,
+  Simplib::Netlist                  $ssl_allowroot     = simplib::lookup('simp_options::trusted_nets', {'default_value' => ['127.0.0.1/32'] }),
   Enum['none','optional','require'] $ssl_verify_client = 'none',
   Simplib::Uri                      $es_proxy          = 'http://127.0.0.1:9199',
   String                            $es_uri            = 'es',
