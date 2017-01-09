@@ -31,6 +31,7 @@ default_hiera_config =<<-EOM
   :datadir: "stub"
 :hierarchy:
   - "%{custom_hiera}"
+  - "%{spec_title}"
   - "%{module_name}"
   - "default"
 EOM
